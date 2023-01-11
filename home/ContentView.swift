@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+   // @State var test = ""
     @State  var textFieldText1 = ""
     @State  var textFieldText2:  String = ""
     @State  var textFieldText3:  String = ""
@@ -19,7 +20,8 @@ struct ContentView: View {
         NavigationView {
             ScrollView{
                 ZStack{
-                    Text("Location photo")
+                  //  Text("text2")
+                    Text("text2")
                         .padding(.top, 100.0)
                         .frame( width: 300, height: 100,
                                 alignment: .leading)
@@ -34,17 +36,17 @@ struct ContentView: View {
                     VStack{
                         Image(uiImage: image ?? UIImage ( named:"placeholder")!)
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: 200, height: 150)
                                                     .padding(.top, 400.0)
 
                     }
                     VStack{
-                    Button(" Choose Picture "){
+                    Button("text3"){
                         self.showSheet = true
                     }               .padding(.top, 640.0)
                         .actionSheet(isPresented: $showSheet){
-                            ActionSheet(title: Text("Photo Library "),message: Text("choose"),buttons: [
-                                .default(Text("Photo Library")){
+                            ActionSheet(title: Text("text4"),message: Text("text5"),buttons: [
+                                .default(Text("text4")){
                                     self.showImagePickr = true
                                     self.sourceType = .photoLibrary
                                 },
@@ -52,21 +54,21 @@ struct ContentView: View {
                         }
                            }
                             VStack{
-                                Text("Location Name")
+                                Text("text6")
                                     .padding(.top, 700.0)
                                     .frame( width: 300, height: 100,
                                             alignment: .leading)
                             }
                             VStack{
                                 Section{
-                                    TextField("enter", text: $textFieldText1)
+                                    TextField("", text: $textFieldText1)
                                         .textFieldStyle(.roundedBorder)
                                         .frame(width: 300, height: 90)
                                         .padding(.top, 800.0)
                                 }
                             }
                             VStack{
-                                Text("Location Link")
+                                Text("text7")
                                     .padding(.top, 900.0)
                                     .frame( width: 300, height: 100,
                                             alignment: .leading)
@@ -79,7 +81,7 @@ struct ContentView: View {
                                 
                             }
                             VStack{
-                                Text(" description")
+                                Text("text8")
                                     .padding(.top, 1100.0)
                                     .frame( width: 300, height: 100,
                                             alignment: .leading)
@@ -89,25 +91,27 @@ struct ContentView: View {
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
                                     .frame(width: 300, height: 90)
                                     .padding(.top, 1200.0)
+                                
                             }
-                
-                            Button{
-                                print("save")
-                            } label: {
-                                Text("Save")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .padding(.top, 1350.0)
-                            .foregroundColor(.white)
-                            .frame(width: 300, height: 90)
-
+                    
+                        Button{
+                            print("save")
+                        } label: {
+                            Text("text9")
                         }
+                        .buttonStyle(.borderedProminent)
+                        .padding(.top, 1350.0)
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 90)
+                        
+                                            }
                     
                     
                         .frame(height: 0.0)
                 }
-                .navigationTitle("Add New Location")
-                .navigationBarTitleDisplayMode(.inline)            
+         //   Text("text1")
+                .navigationTitle("text1")
+                .frame(maxWidth: .infinity, alignment: .center)
                 
             }.sheet(isPresented: $showImagePickr) {
                         ImagePicker(image: self .$image, isShown: self .$showImagePickr, sourceType: self.sourceType)
